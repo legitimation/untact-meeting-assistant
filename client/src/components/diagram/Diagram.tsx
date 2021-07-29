@@ -128,12 +128,19 @@ const Diagram = React.forwardRef(({ transcriptArr }: Props) => {
   return (
     <Container>
       <div ref={canvasRef} style={{ position: 'relative' }}>
+        {/* <div className ="containerbackground">
+          Background Text
+        </div>
+        <Containerbackground>
+          Background Text
+        </Containerbackground>   */}
         <ReactDiagram
           initDiagram={initDiagram}
           divClassName="diagram-component"
           nodeDataArray={[]}
           skipsDiagramUpdate={true}
-        />
+        >
+        </ReactDiagram>
         <CaptureBtn onClick={captureBtnHandler}>capture</CaptureBtn>
       </div>
 
@@ -174,4 +181,16 @@ const TranscriptBox = styled.div`
   overflow: scroll;
 `;
 
+const Containerbackground = styled.div`
+  margin: 3rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+  transform: rotate(300deg);
+  -webkit-transform: rotate(300deg);
+  color: #c6afaf;
+`
 export default Diagram;
+
